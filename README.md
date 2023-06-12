@@ -15,22 +15,28 @@ cd ..
 
 ## Step 2: Download Clair3 and models
 ```
+#download r941-g5014 single
 wget -O ./r941_prom_sup_g5014.tar.gz  http://www.bio8.cs.hku.hk/clair3/clair3_models/r941_prom_sup_g5014.tar.gz
 gunzip r941_prom_sup_g5014.tar.gz
+tar -xvf r941_prom_sup_g5014.tar
 
+#download r941-g360+g422 single
 wget -O ./r941_prom_hac_g360+g422.tar.gz  http://www.bio8.cs.hku.hk/clair3/clair3_models/r941_prom_hac_g360+g422.tar.gz
 gunzip ./r941_prom_hac_g360+g422.tar.gz
+tar -xvf r941_prom_hac_g360+g422.tar
 
+# or download all models
 wget -O ./clair3_models.tar.gz http://www.bio8.cs.hku.hk/clair3/clair3_models/clair3_models.tar.gz
 tar -xvf ./clair3_models.tar.gz
 
+#download clair3 .py and .sh scripts
 wget -O ./clair3.py https://github.com/HKU-BAL/Clair3/blob/main/clair3.py
 wget -O ./run_clair3.sh https://github.com/HKU-BAL/Clair3/blob/main/run_clair3.sh
-module load python/anaconda3.9-2021.11
 
-# clone Clair3
+# clone Clair3 (if preffered)
 git clone https://github.com/HKU-BAL/Clair3/blob/main/clair3.py
 ```
+
 ## Step3: Use LR_AmpliconSeq.sh to run Minimap2 and Clair3 for SNP dection and phasing
 ```
 sbatch LR_AmpliconSeq.sh
